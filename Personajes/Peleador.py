@@ -8,38 +8,34 @@ class Peleador (ABC):
         self.__energia=100
         
  
-    #D0ecorador
-    @property
+    #Decorador:Getters limpios para poder consultar el estado desde afuera
+    @property#CON PROPERTY LO CONVIERTO EN SOLO LECTURA
     def salud(self):
         return self.__salud
-    
     @property
-    def daño(self):
-        return self.__daño
+    def energia(self):
+        return self._energia
     
-    @property
+    #Metodos comunes
     def recibirDanio(self,cantidad):
         self.__salud=max(0,self.__salud - cantidad)
         print(f"El {self.nombre} recibio:{cantidad} de daño. Le queda {self.__salud} de salud")    
     
-    @property
+    
     def estaVivo(self):
         return self.__salud > 0 
     
-    @property
     def usarEnergia(self,uso):
         self._energia=max(0,self._energia-uso)
         return 
     
-    
+    #Metodos absstractos
     @abstractmethod
     def ataqueBasico(self):
         pass
     
-    @abstractmethod
-    def ataquePatada(self):
-        pass
     
     @abstractmethod
     def ataqueEspecial(self):
         pass
+    
