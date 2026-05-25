@@ -14,7 +14,7 @@ class Peleador (ABC):
         return self.__salud
     @property
     def energia(self):
-        return self._energia
+        return self.__energia
     
     #Metodos comunes
     def recibirDanio(self,cantidad):
@@ -26,7 +26,7 @@ class Peleador (ABC):
         return self.__salud > 0 
     
     def usarEnergia(self,uso):
-        self._energia=max(0,self._energia-uso)
+        self.__energia=max(0,self.__energia-uso)
         return 
     
     #Metodos absstractos

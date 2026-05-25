@@ -1,4 +1,5 @@
-from Peleador import Peleador
+from Personajes.Peleador import Peleador
+
 class KickBoxer(Peleador):
     
      #Metodos absstractos
@@ -6,13 +7,15 @@ class KickBoxer(Peleador):
         super().__init__(nombre)
 
     def ataqueBasico(self):
-        self.usarEnergia(15)
-        return 16#Daño causado
-    
+        if self.energia >= 18:
+            self.usarEnergia(18)
+            danio = 15  # O el daño base que quieras ponerle
+            return danio  # 🟢 CRUCIAL: Devolver el número para que el motor lo use
+        return 0
 
     def ataqueEspecial(self):
-        if self.energia>=24:
-            self.usarEnergia(24)
-            return 34#El ataque se realizo con exito
-        else:
-            return 0#El ataque no se realizo
+        if self.energia >= 25:
+            self.usarEnergia(25)
+            danio = 30  # Daño especial
+            return danio  # 🟢 CRUCIAL: Devolver el daño
+        return 0

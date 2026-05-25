@@ -1,17 +1,17 @@
-from Peleador import Peleador
+from Personajes.Peleador import Peleador
 class Taekwondista(Peleador):
      #Metodos absstractos
     def __init__(self,nombre):
         super().__init__(nombre)
 
     def ataqueBasico(self):
-        self.usarEnergia(18)
-        return 18 #Daño causado
-    
+        if self.energia >= 18:
+            self.usarEnergia(18)
+            return 15  # 🟢 RETORNA EL DAÑO REAL (Poné el número que quieras)
+        return 0
 
     def ataqueEspecial(self):
-        if self.energia>=27:
-            self.usarEnergia(27)
-            return 36#El ataque se realizo con exito
-        else:
-            return 0#El ataque no se realizo
+        if self.energia >= 25:
+            self.usarEnergia(25)
+            return 30  # 🟢 RETORNA EL DAÑO REAL
+        return 0
